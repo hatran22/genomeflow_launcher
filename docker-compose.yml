@@ -1,0 +1,12 @@
+version: "3.1"
+
+services:
+  genomeflow:
+    build: 
+    secrets:
+      - app_cert_key
+    
+
+secrets:
+  app_cert_key:
+   external: true

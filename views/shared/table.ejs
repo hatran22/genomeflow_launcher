@@ -1,0 +1,65 @@
+<table id="table" class="nowrap table table-striped table-hover w-100">
+  <thead>
+    <tr>
+      <th>sno</th>
+      <th>project_name</th>
+      <th>job_name</th>
+      <th>task_count_total</th>
+      <th>task_count_processing</th>
+      <th>task_count_completed</th>
+      <th>task_count_failed</th>
+      <th>started_date</th>
+      <th>ended_date</th>
+      <th>last_processed_date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for(let i = 0; i < data.length; i++) { %>
+      <tr>
+        <td><%= data[i].sno %></td>
+        <td><%= data[i].project_name %></td>
+        <td><a href="/detail?sno=<%= data[i].sno %>"><%= data[i].job_name %></a></td>
+        <td><%= data[i].task_count_total %></td>
+        <td><%= data[i].task_count_processing %></td>
+        <td><%= data[i].task_count_completed %></td>
+        <td><%= data[i].task_count_failed %></td>
+        <td><%= data[i].started_date %></td>
+        <td><%= data[i].ended_date %></td>
+        <td><%= data[i].last_processed_date %></td>
+      </tr>
+    <% } %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <th>sno</th>
+      <th>project_name</th>
+      <th>job_name</th>
+      <th>task_count_total</th>
+      <th>task_count_processing</th>
+      <th>task_count_completed</th>
+      <th>task_count_failed</th>
+      <th>started_date</th>
+      <th>ended_date</th>
+      <th>last_processed_date</th>
+    </tr>
+  </tfoot>
+</table>
+
+<link rel="stylesheet" href="//cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+<style></style>
+
+<script src="//cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+<script>
+  new Vue({
+    el: "#table",
+    data: {
+    },
+    methods: {
+    },
+    mounted() {
+      $('#table').DataTable({
+        'scrollX': true
+      });
+    }
+  })
+</script>
